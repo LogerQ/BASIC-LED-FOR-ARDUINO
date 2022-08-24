@@ -1,0 +1,14 @@
+#define ldr 35 //กำหนดให้ ldr เป็น pin ที่ 35
+void setup() {
+  Serial.begin(9600); //ตั้งค่าความเร็วในการส่งข้อมูลของพอร์ต
+  pinMode(ldr, INPUT); //กำหนดให้pin LED ทำหน้าที่รับข้อมูล
+}
+void loop() {
+  float ldr_data = analogRead(ldr); //สร้างตัวแปร ldr_data เป็นข้อมูลในรูปแบบทศนิยม และ เป็นตัวแปรของค่า ldr
+  if (ldr_data >= 800) { 
+    Serial.print("LED ON");  //แสดงคำว่า LED ON ใน Serial monitor
+  }
+  else {
+  Serial.print("LED OFF"); //แสดงคำว่า LED OFF ใน Serial monitor
+  }
+}
